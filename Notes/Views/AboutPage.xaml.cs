@@ -2,17 +2,22 @@ namespace Notes.Views;
 
 public partial class AboutPage : ContentPage
 {
-	public AboutPage()
-	{
-		InitializeComponent();
-	}
-
-    private async void LearnMore_Clicked(object sender, EventArgs e)
+    public AboutPage()
     {
-        if (BindingContext is Models.About about)
+        InitializeComponent();
+    }
+
+    private async void OpenLink_Tapped(object sender, EventArgs e)
+    {
+        string url = "https://github.com/Altermanns/Notes.git";
+        try
         {
-            // Navigate to the specified URL in the system browser.
-            await Launcher.Default.OpenAsync(about.MoreInfoUrl);
+            await Launcher.Default.OpenAsync(url);
+        }
+        catch (Exception ex)
+        {
+            // Manejo de errores si no se puede abrir el enlace
+            await DisplayAlert("Error", $"No se pudo abrir el enlace: {ex.Message}", "OK");
         }
     }
 }
