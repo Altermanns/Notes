@@ -8,7 +8,7 @@
              NavigatedTo="ContentPage_NavigatedTo">
 
     <ContentPage.BindingContext>
-        <viewModels:NotesViewModel />
+        <viewModels:ITNotesViewModel />
     </ContentPage.BindingContext>
 
     <!-- Add an item to the toolbar -->

@@ -7,7 +7,7 @@
              BackgroundColor="LightYellow">
 
     <ContentPage.BindingContext>
-        <viewModels:NoteViewModel />
+        <viewModels:ITNoteViewModel />
     </ContentPage.BindingContext>
 
     <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="Center">
