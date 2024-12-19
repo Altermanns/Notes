@@ -3,24 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.NotePage"
-             Title="Note">
+             Title="Note"
+             BackgroundColor="LightYellow">
+
     <ContentPage.BindingContext>
         <viewModels:NoteViewModel />
     </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="5">
-        <Editor x:Name="TextEditor"
-                Placeholder="Enter your note"
-                Text="{Binding Text}"
-                HeightRequest="100" />
 
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+    <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+
+        <Label Text="Write Your Note"
+               FontSize="Large"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="Black" />
+
+        <Frame BorderColor="DarkBlue" CornerRadius="10" Padding="10" BackgroundColor="White" HasShadow="True">
+            <Editor x:Name="TextEditor"
+                    Placeholder="Enter your note here..."
+                    Text="{Binding Text}"
+                    HeightRequest="150"
+                    FontSize="Medium"
+                    BackgroundColor="Transparent"/>
+        </Frame>
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Padding="10">
             <Button Text="Save"
-                    Command="{Binding SaveCommand}"/>
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="DarkGreen"
+                    TextColor="White"
+                    CornerRadius="5" />
 
             <Button Grid.Column="1"
                     Text="Delete"
-                    Command="{Binding DeleteCommand}"/>
-
+                    Command="{Binding DeleteCommand}"
+                    BackgroundColor="DarkRed"
+                    TextColor="White"
+                    CornerRadius="5" />
         </Grid>
+
     </VerticalStackLayout>
 </ContentPage>
